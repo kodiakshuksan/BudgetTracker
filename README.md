@@ -21,8 +21,6 @@ Tracks account credits and debits on and offline
 
 ## Installation-
 
-[Video Demonstration of Application]()
-
 ## Usage-
 
 ![transactions](Develop/public/icons/transactions.png))
