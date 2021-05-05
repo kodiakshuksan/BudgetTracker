@@ -1,26 +1,33 @@
 const FILES_TO_CACHE = [
     "/",
-    "/public/index.html",
-    "/public/style.css",
-    "/public/index.js",
-    "/public/icons/icon-192x192.png",
-    "/public/icons/icon-512x512.png",
+    "/index.html",
+    "/style.css",
+    "/index.js",
+    "/icons/icon-192x192.png",
+    "/icons/icon-512x512.png",
+    "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
   ];
   
   const CACHE_NAME = "static-cache-v2";
   const DATA_CACHE_NAME = "data-cache-v1";
   
   // install
-  self.addEventListener("install", function(evt) {
+self.addEventListener("install", function (evt) {
+    // pre cache image data
+    // evt.waitUntil(
+    //   caches.open(DATA_CACHE_NAME).then((cache) => cache.add("/api/images"))
+    //   );
+      
+    // pre cache all static assets
     evt.waitUntil(
-      caches.open(CACHE_NAME).then(cache => {
-        console.log("Your files were pre-cached successfully!");
-        return cache.addAll(FILES_TO_CACHE);
-      })
+      caches.open(CACHE_NAME).then((cache) => cache.addAll(FILES_TO_CACHE))
     );
   
+    // tell the browser to activate this service worker immediately once it
+    // has finished installing
     self.skipWaiting();
   });
+  
   
   self.addEventListener("activate", function(evt) {
     evt.waitUntil(
@@ -38,6 +45,8 @@ const FILES_TO_CACHE = [
   
     self.clients.claim();
   });
+  
+ 
   
   // fetch
   self.addEventListener("fetch", function(evt) {

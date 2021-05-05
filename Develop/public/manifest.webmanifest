@@ -1,0 +1,20 @@
+{
+  "name": "BudgetTracker App",
+  "short_name": "BudgetTracker App",
+  "icons": [
+    {
+      "src": "public/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "icon/png"
+    },
+    {
+      "src": "public/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "icon/png"
+    }
+  ],
+  "theme_color": "#ffffff",
+  "background_color": "#dddddd",
+  "start_url": "/",
+  "display": "standalone"
+}

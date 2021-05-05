@@ -5,12 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="theme-color" content="#317EFB">
+  <title>Budget Tracker</title>
   <link rel="shortcut icon" href="icons/icon-192x192.png" type="image/x-icon">
-
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="style.css">
-
-  <title>Budget Tracker</title>
+  <link rel="apple-touch-icon" href="./public/icons/icon-512X512.png" />
 </head>
 <body>
   <div class="wrapper">
@@ -42,6 +41,15 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <script type="text/javascript">
+    (function () {
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("./service-worker.js", { scope: "/" })
+          .then(() => console.log("Service Worker registered successfully."))
+          .catch(error => console.log("Service Worker registration failed:", error));
+      }
+    })();
+  </script>
   <script src="index.js"></script>
 </body>
 </html>
